@@ -7,6 +7,10 @@
 <!-- Loop over all of the user's guesses here -->
 <p class="lead">
 <% @old_guesses.each do |zebra| %>
+  
+  <% if zebra.fetch("third_num").to_i > zebra.fetch("second_num").to_i && 
+  zebra.fetch("second_num").to_i > zebra.fetch("first_num").to_i%>
+
   <span class="badge badge-success">
 <%= zebra.fetch("first_num") %> 
 
@@ -19,29 +23,38 @@
   <span class="badge badge-success">
     <%= zebra.fetch("third_num") %> 
   </span>
-<% end %>
+
+  
   <span class="text-success">
       Yes!
   </span>
+
+  <% else %>
+
+  <span class="badge badge-danger">
+<%= zebra.fetch("first_num") %> 
+
+  </span>
+
+  <span class="badge badge-danger">
+    <%= zebra.fetch("second_num") %> 
+  </span>
+
+  <span class="badge badge-danger">
+    <%= zebra.fetch("third_num") %> 
+  </span>
+
+
+
+   <span class="text-danger">
+      No!
+  </span>
+ <% end %> 
+  
+ 
 </p>
+<% end %>
 
-<p class="lead">
-  <span class="badge badge-danger">
-    3
-  </span>
-
-  <span class="badge badge-danger">
-    2
-  </span>
-
-  <span class="badge badge-danger">
-    1
-  </span>
-
-  <span class="text-danger">
-      No.
-  </span>
-</p>
 <!-- End loop -->
 
 <p class="lead"><strong>Enter a sequence to test:</strong></p>
