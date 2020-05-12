@@ -7,15 +7,15 @@
 <!-- Loop over all of the user's guesses here -->
 <p class="lead">
   <span class="badge badge-success">
-    3
+    <%= session.fetch(:first)%>
   </span>
 
   <span class="badge badge-success">
-    6
+    <%= session.fetch(:second)%>
   </span>
 
   <span class="badge badge-success">
-    12
+    <%= session.fetch(:third)%>
   </span>
 
   <span class="text-success">
