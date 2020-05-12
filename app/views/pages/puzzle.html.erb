@@ -7,15 +7,18 @@
 <!-- Loop over all of the user's guesses here -->
 <p class="lead">
   <span class="badge badge-success">
-    <%= session.fetch(:first)%>
+ <h1> Hello <%=@a%> </h1>
+
+ 
+    <%= cookies.fetch(:first)%>
   </span>
 
   <span class="badge badge-success">
-    <%= session.fetch(:second)%>
+    <%= cookies.fetch(:second)%>
   </span>
 
   <span class="badge badge-success">
-    <%= session.fetch(:third)%>
+    <%= cookies.fetch(:third)%>
   </span>
 
   <span class="text-success">

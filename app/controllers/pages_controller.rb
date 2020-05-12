@@ -6,11 +6,28 @@ class PagesController < ApplicationController
   
   def write_cookie
 
+    if session.fetch(:user_guesses) == nil
+      old_guesses = []
+    else
+      old_guesses = session.fetch(:user_guesses)
+    end 
 
-   session.store(:first, params.fetch("first_num"))
-   session.store(:second, params.fetch("second_num"))
-   session.store(:third, params.fetch("third_num"))
+    old_guesses.push(params)
+
+    session.store(:user_guesses, old guesses)
+
+    
+
+    # or reset_session 
+    #session.store(:user_guesses, nil)
+
+   cookies.store(:first, params.fetch("first_num"))
+   cookies.store(:second, params.fetch("second_num"))
+   cookies.store(:third, params.fetch("third_num"))
    
+   
+   @a.push(:first)
+
     redirect_to("/")
   end
 end
