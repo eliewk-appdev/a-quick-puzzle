@@ -7,8 +7,10 @@
 <!-- Loop over all of the user's guesses here -->
 <p class="lead">
   <span class="badge badge-success">
- <h1> Hello <%=@a%> </h1>
 
+<% @old_guesses.each do |zebra| %>
+<h1> <%= zebra.fetch("first_num") %> </h1>
+<% end %>
  
     <%= cookies.fetch(:first)%>
   </span>

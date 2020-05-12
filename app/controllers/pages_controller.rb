@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   def puzzle
+    @old_guesses = session.fetch(:user_guesses)
     #cookies.fetch("user_id")
     render({ :template => "pages/puzzle.html.erb" })
   end
@@ -14,19 +15,19 @@ class PagesController < ApplicationController
 
     old_guesses.push(params)
 
-    session.store(:user_guesses, old guesses)
+    session.store(:user_guesses, old_guesses)
 
     
 
     # or reset_session 
     #session.store(:user_guesses, nil)
 
-   cookies.store(:first, params.fetch("first_num"))
-   cookies.store(:second, params.fetch("second_num"))
-   cookies.store(:third, params.fetch("third_num"))
+   #cookies.store(:first, params.fetch("first_num"))
+   #cookies.store(:second, params.fetch("second_num"))
+   #cookies.store(:third, params.fetch("third_num"))
    
    
-   @a.push(:first)
+   #@a.push(:first)
 
     redirect_to("/")
   end
